@@ -6,17 +6,26 @@ public class PalindroneCheckerApp {
 
         Scanner sc = new Scanner(System.in);
 
-        String original = sc.nextLine();
-        String reversed = "";
+        String input = sc.nextLine();
+        char[] arr = input.toCharArray();
 
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        int left = 0;
+        int right = arr.length - 1;
+        boolean isPalindrome = true;
+
+        while (left < right) {
+            if (arr[left] != arr[right]) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
         }
 
-        if (original.equals(reversed)) {
-            System.out.println(original + " is a Palindrome");
+        if (isPalindrome) {
+            System.out.println(input + " is a Palindrome");
         } else {
-            System.out.println(original + " is NOT a Palindrome");
+            System.out.println(input + " is NOT a Palindrome");
         }
 
         sc.close();
